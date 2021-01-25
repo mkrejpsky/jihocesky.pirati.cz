@@ -110,17 +110,18 @@ exclude:
   - bower_components
   - vendor  
 
-permalink: /aktuality/:title.html
+permalink: /tiskove-zpravy/:title/
 collections:
   people:
     output: true
-    permalink: /lide/:path/
+    root: /clenove/
+    permalink: /clenove/:path/
+
   program:
     output: true
-    permalink: /volby/:path/
-  teams:
-    output: true
-    permalink: /pripoj-se/:title/
+    permalink: /:path/
+
+  # Sole purpose is to create candidate lists in separate files.
   candidatelists:
     output: false
 
@@ -130,33 +131,20 @@ defaults:   # defaults values for collection scope
       path: "_people"
     values:
       layout: "person"
-      rbar: 
+      rbar:
         - foto
         - personContact
-        - personArticles
-          #- people
+        - people
+      keywords: členové, příznivci, lidé
   -
     scope:
       path: "_program"
     values:
       layout: "program-post"
-      rbar: "volby"
-      #- garant
-      #   - program
-  -
-    scope:
-      path: "_teams"
-    values:
-      layout: "team"
-      rbar: "team-summary, teams-toc"
-  -
-    scope:
-      path: "_posts"
-    values:
-      layout: "post"
-
-fb: https://www.facebook.com/cpsmsk
-tw: PiratiMSK
+      rbar:
+        - garant
+        - program
+      keywords: program, volby, 2020, krajské volby, jihočeský kraj
 
 emptyArray: []
 
